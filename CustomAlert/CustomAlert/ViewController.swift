@@ -20,6 +20,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func tapButton(_ sender: Any) {
+        let vc = CustomAlertViewController(title: "hoge")
+        self.present(vc, animated: true, completion: nil)
+    }
+    
 }
 
