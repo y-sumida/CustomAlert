@@ -27,6 +27,9 @@ class CustomAlertViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let alert = CustomAlert(frame: CGRect(x: 0, y: 0, width: 300, height: 200))
+        alert.title.text = alertTitle
+        view.addSubview(alert)
     }
 
     override func didReceiveMemoryWarning() {
