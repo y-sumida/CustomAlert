@@ -12,15 +12,17 @@ class CustomAlertViewController: UIViewController {
     private let screenSize: CGRect = UIScreen.main.bounds
 
     private let alertTitle: String!
-    private var alertAction: (() -> Void) = {}
+    private var alertHandler: (() -> Void)? = nil
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    init(title: String, action: @escaping (() -> Void) = {}) {
+    init(title: String, action: (() -> Void)? = nil) {
         alertTitle = title
-        alertAction = action
+        if let action = action {
+            alertHandler = action
+        }
         super.init(nibName: nil, bundle: nil)
         self.modalPresentationStyle = .overCurrentContext
         self.modalTransitionStyle = .crossDissolve
@@ -31,7 +33,11 @@ class CustomAlertViewController: UIViewController {
         super.viewDidLoad()
         let alert = CustomAlert(frame: CGRect(x: 0, y: 0, width: 300, height: 200))
         alert.title.text = alertTitle
-        alert.leftAction = alertAction
+        if let handler = alertHandler {
+            alert.leftAction = { [unowned self] in self.dismiss(animated: true, completion: handler) }
+        } else {
+            alert.leftAction = { [unowned self] in self.dismiss(animated: true, completion: nil) }
+        }
         view.addSubview(alert)
         alert.translatesAutoresizingMaskIntoConstraints = false
         alert.centerYAnchor.constraint(equalTo: (alert.superview?.centerYAnchor)!).isActive = true
