@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func tapButton(_ sender: Any) {
-        let vc = CustomAlertViewController(title: "hoge")
+        let vc = CustomAlertViewController(title: "タイトルタイトル", message: "メッセージメッセージメッセージ")
         self.present(vc, animated: true, completion: nil)
     }
     
