@@ -16,7 +16,7 @@ class CustomAlertViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     init(title: String) {
         alertTitle = title
         super.init(nibName: nil, bundle: nil)
@@ -30,6 +30,11 @@ class CustomAlertViewController: UIViewController {
         let alert = CustomAlert(frame: CGRect(x: 0, y: 0, width: 300, height: 200))
         alert.title.text = alertTitle
         view.addSubview(alert)
+        alert.translatesAutoresizingMaskIntoConstraints = false
+        alert.centerYAnchor.constraint(equalTo: (alert.superview?.centerYAnchor)!).isActive = true
+        alert.centerXAnchor.constraint(equalTo: (alert.superview?.centerXAnchor)!).isActive = true
+        alert.widthAnchor.constraint(equalTo: (alert.superview?.widthAnchor)!, multiplier: 0.80).isActive = true
+        alert.heightAnchor.constraint(equalTo: (alert.superview?.heightAnchor)!, multiplier: 0.50).isActive = true
     }
 
     override func didReceiveMemoryWarning() {
