@@ -17,8 +17,8 @@ struct CustomAlertAction {
 class CustomAlertViewController: UIViewController {
     private let screenSize: CGRect = UIScreen.main.bounds
 
-    private let alertTitle: String!
-    private let alertMessage: String!
+    private let alertTitle: String?
+    private let alertMessage: String?
 
     private let alertView: CustomAlert = CustomAlert()
 
@@ -26,7 +26,7 @@ class CustomAlertViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    init(title: String, message: String, preferredStyle: UIAlertControllerStyle) {
+    init(title: String?, message: String?, preferredStyle: UIAlertControllerStyle) {
         // TODO preferredStyle を使う
         alertTitle = title
         alertMessage = message
