@@ -48,7 +48,6 @@ class CustomAlertViewController: UIViewController {
     private func initAlertView() {
         alertView.title.text = alertTitle
         alertView.message.text = alertMessage
-        alertView.cancelAction = { [unowned self] in self.dismiss(animated: true, completion: nil) }
         view.addSubview(alertView)
 
         alertView.translatesAutoresizingMaskIntoConstraints = false
@@ -60,24 +59,7 @@ class CustomAlertViewController: UIViewController {
     }
 
     func addAction(_ action: CustomAlertAction) {
-        // TODO: View側にCustomAlertAction渡すように変更する
-        if action.style == .cancel {
-            if let title = action.title {
-                alertView.cancelButton.setTitle(title, for: .normal)
-            }
-            if let handler = action.handler {
-                alertView.cancelAction = { [unowned self] in self.dismiss(animated: true, completion: handler) }
-            }
-        } else {
-            if let title = action.title {
-                alertView.defaultButton.setTitle(title, for: .normal)
-            }
-            if action.style == .destructive {
-                alertView.defaultButton.setTitleColor(UIColor.red, for: .normal)
-            }
-            if let handler = action.handler {
-                alertView.defaultAction = { [unowned self] in self.dismiss(animated: true, completion: handler) }
-            }
-        }
+        let action = CustomAlertAction(title: action.title, style: action.style, handler: { [unowned self] in self.dismiss(animated: true, completion: action.handler) })
+        alertView.addAction(action)
     }
 }

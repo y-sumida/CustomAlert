@@ -14,9 +14,7 @@ class CustomAlert: UIView {
     @IBOutlet weak var message: UILabel!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var defaultButton: UIButton!
-
-    var cancelAction: (() -> Void) = {}
-    var defaultAction: (() -> Void) = {}
+    private var actions:[CustomAlertAction] = []
 
     override init(frame: CGRect){
         super.init(frame: frame)
@@ -29,16 +27,25 @@ class CustomAlert: UIView {
     }
 
     @IBAction func tapDefault(_ sender: Any) {
-        self.defaultAction()
+        guard actions.count == 2, let handler = actions[1].handler else { return }
+        handler()
     }
 
     @IBAction func tapCancel(_ sender: Any) {
-        self.cancelAction()
+        guard !actions.isEmpty, let handler = actions[0].handler  else { return }
+        handler()
     }
 
     func loadNib(){
         Bundle.main.loadNibNamed("CustomAlert", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
+    }
+
+    func addAction(_ action: CustomAlertAction) {
+        // とりあえずボタン2つまで
+        // TODO ボタンラベルのセット
+        guard actions.count < 2 else { return }
+        actions.append(action)
     }
 }
