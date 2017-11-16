@@ -13,7 +13,8 @@ class CustomAlertViewController: UIViewController {
 
     private let alertTitle: String!
     private let alertMessage: String!
-    private var alertHandler: (() -> Void)? = nil
+
+    private let alertView: CustomAlert = CustomAlert()
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -39,19 +40,15 @@ class CustomAlertViewController: UIViewController {
     }
 
     private func initAlertView() {
-        let alert = CustomAlert()
-        alert.title.text = alertTitle
-        alert.message.text = alertMessage
-        if let handler = alertHandler {
-            alert.leftAction = { [unowned self] in self.dismiss(animated: true, completion: handler) }
-        } else {
-            alert.leftAction = { [unowned self] in self.dismiss(animated: true, completion: nil) }
-        }
-        view.addSubview(alert)
-        alert.translatesAutoresizingMaskIntoConstraints = false
-        alert.centerYAnchor.constraint(equalTo: (alert.superview?.centerYAnchor)!).isActive = true
-        alert.centerXAnchor.constraint(equalTo: (alert.superview?.centerXAnchor)!).isActive = true
-        alert.widthAnchor.constraint(equalTo: (alert.superview?.widthAnchor)!, multiplier: 0.80).isActive = true
+        alertView.title.text = alertTitle
+        alertView.message.text = alertMessage
+        alertView.leftAction = { [unowned self] in self.dismiss(animated: true, completion: nil) }
+        view.addSubview(alertView)
+
+        alertView.translatesAutoresizingMaskIntoConstraints = false
+        alertView.centerYAnchor.constraint(equalTo: (alertView.superview?.centerYAnchor)!).isActive = true
+        alertView.centerXAnchor.constraint(equalTo: (alertView.superview?.centerXAnchor)!).isActive = true
+        alertView.widthAnchor.constraint(equalTo: (alertView.superview?.widthAnchor)!, multiplier: 0.80).isActive = true
 
         self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
     }
