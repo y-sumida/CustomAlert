@@ -8,6 +8,12 @@
 
 import UIKit
 
+struct CustomAlertAction {
+    var title: String?
+    var style: UIAlertActionStyle
+    var handler: (() -> Void)?
+}
+
 class CustomAlertViewController: UIViewController {
     private let screenSize: CGRect = UIScreen.main.bounds
 
@@ -51,5 +57,16 @@ class CustomAlertViewController: UIViewController {
         alertView.widthAnchor.constraint(equalTo: (alertView.superview?.widthAnchor)!, multiplier: 0.80).isActive = true
 
         self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
+    }
+
+    func addAction(_ action: CustomAlertAction) {
+        if let title = action.title {
+            alertView.cancelButton.setTitle(title, for: .normal)
+        }
+
+        if let handler = action.handler {
+            alertView.cancelAction = { [unowned self] in self.dismiss(animated: true, completion: handler) }
+        }
+        // TODO style使う
     }
 }

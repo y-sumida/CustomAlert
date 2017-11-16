@@ -12,6 +12,7 @@ class CustomAlert: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var message: UILabel!
+    @IBOutlet weak var cancelButton: UIButton!
 
     var cancelAction: (() -> Void) = {}
 

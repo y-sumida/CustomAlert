@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomAlert" customModule="CustomAlert" customModuleProvider="target">
             <connections>
+                <outlet property="cancelButton" destination="1EN-iK-k5C" id="SiI-u3-32C"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="rrl-89-1gj"/>
                 <outlet property="message" destination="H8b-57-med" id="0AN-19-W9Y"/>
                 <outlet property="title" destination="kiY-Hq-9UE" id="Q1h-Xj-RJN"/>
