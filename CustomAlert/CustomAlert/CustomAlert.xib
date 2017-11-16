@@ -15,6 +15,8 @@
                 <outlet property="contentView" destination="iN0-l3-epB" id="rrl-89-1gj"/>
                 <outlet property="defaultButton" destination="B2e-mP-rsF" id="lj8-4H-gob"/>
                 <outlet property="message" destination="H8b-57-med" id="0AN-19-W9Y"/>
+                <outlet property="stackView" destination="L9G-NI-8Ke" id="y6V-pi-YpJ"/>
+                <outlet property="stackViewHeight" destination="Lhq-Z6-ISC" id="5TC-3k-hbZ"/>
                 <outlet property="title" destination="kiY-Hq-9UE" id="Q1h-Xj-RJN"/>
             </connections>
         </placeholder>
@@ -24,22 +26,22 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiY-Hq-9UE">
-                    <rect key="frame" x="16" y="20" width="56.5" height="26.5"/>
+                    <rect key="frame" x="16" y="20" width="56.5" height="31"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8b-57-med">
-                    <rect key="frame" x="16" y="62" width="343" height="20.5"/>
+                    <rect key="frame" x="16" y="66.5" width="343" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="L9G-NI-8Ke">
-                    <rect key="frame" x="16" y="98.5" width="343" height="34.5"/>
+                    <rect key="frame" x="16" y="103" width="343" height="30"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1EN-iK-k5C">
-                            <rect key="frame" x="0.0" y="0.0" width="163.5" height="34.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="163.5" height="30"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="Button"/>
                             <connections>
@@ -47,7 +49,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2e-mP-rsF">
-                            <rect key="frame" x="179.5" y="0.0" width="163.5" height="34.5"/>
+                            <rect key="frame" x="179.5" y="0.0" width="163.5" height="30"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="Button"/>
                             <connections>
@@ -55,6 +57,9 @@
                             </connections>
                         </button>
                     </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Lhq-Z6-ISC"/>
+                    </constraints>
                 </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="0.62771045290000005" blue="0.66117453349999999" alpha="1" colorSpace="calibratedRGB"/>

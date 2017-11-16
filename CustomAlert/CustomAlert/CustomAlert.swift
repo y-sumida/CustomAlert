@@ -14,6 +14,8 @@ class CustomAlert: UIView {
     @IBOutlet weak var message: UILabel!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var defaultButton: UIButton!
+    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var stackViewHeight: NSLayoutConstraint!
     private var actions:[CustomAlertAction] = []
 
     override init(frame: CGRect){
@@ -47,5 +49,21 @@ class CustomAlert: UIView {
         // TODO ボタンラベルのセット
         guard actions.count < 2 else { return }
         actions.append(action)
+    }
+
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        switch actions.count {
+        case 0:
+            cancelButton.isHidden = true
+            defaultButton.isHidden = true
+            stackView.isHidden = true
+            stackViewHeight.constant = 0.0
+        case 1:
+            defaultButton.isHidden = true
+        default:
+            cancelButton.isHidden = false
+            defaultButton.isHidden = false
+        }
     }
 }
