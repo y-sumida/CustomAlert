@@ -26,12 +26,20 @@ class CustomAlertViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         self.modalPresentationStyle = .overCurrentContext
         self.modalTransitionStyle = .crossDissolve
-        self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
+
+        self.initAlertView()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let alert = CustomAlert(frame: CGRect(x: 0, y: 0, width: 300, height: 200))
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    private func initAlertView() {
+        let alert = CustomAlert()
         alert.title.text = alertTitle
         if let handler = alertHandler {
             alert.leftAction = { [unowned self] in self.dismiss(animated: true, completion: handler) }
@@ -43,9 +51,7 @@ class CustomAlertViewController: UIViewController {
         alert.centerYAnchor.constraint(equalTo: (alert.superview?.centerYAnchor)!).isActive = true
         alert.centerXAnchor.constraint(equalTo: (alert.superview?.centerXAnchor)!).isActive = true
         alert.widthAnchor.constraint(equalTo: (alert.superview?.widthAnchor)!, multiplier: 0.80).isActive = true
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
     }
 }
