@@ -13,8 +13,10 @@ class CustomAlert: UIView {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var message: UILabel!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var defaultButton: UIButton!
 
     var cancelAction: (() -> Void) = {}
+    var defaultAction: (() -> Void) = {}
 
     override init(frame: CGRect){
         super.init(frame: frame)
@@ -24,6 +26,10 @@ class CustomAlert: UIView {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         loadNib()
+    }
+
+    @IBAction func tapDefault(_ sender: Any) {
+        self.defaultAction()
     }
 
     @IBAction func tapCancel(_ sender: Any) {

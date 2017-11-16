@@ -22,8 +22,10 @@ class ViewController: UIViewController {
 
     @IBAction func tapButton(_ sender: Any) {
         let vc = CustomAlertViewController(title: "タイトルタイトル", message: "メッセージメッセージメッセージ", preferredStyle: .alert)
-        let action = CustomAlertAction(title: "閉じる", style: .cancel, handler: { () -> Void in print("cancel action")})
-        vc.addAction(action)
+        let defaultAction = CustomAlertAction(title: "OK", style: .default, handler: { () -> Void in print("ok action")})
+        let cancelAction = CustomAlertAction(title: "閉じる", style: .cancel, handler: { () -> Void in print("cancel action")})
+        vc.addAction(defaultAction)
+        vc.addAction(cancelAction)
         self.present(vc, animated: true, completion: nil)
     }
     

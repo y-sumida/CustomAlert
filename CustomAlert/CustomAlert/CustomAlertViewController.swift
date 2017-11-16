@@ -60,13 +60,24 @@ class CustomAlertViewController: UIViewController {
     }
 
     func addAction(_ action: CustomAlertAction) {
-        if let title = action.title {
-            alertView.cancelButton.setTitle(title, for: .normal)
+        // TODO: View側にCustomAlertAction渡すように変更する
+        if action.style == .cancel {
+            if let title = action.title {
+                alertView.cancelButton.setTitle(title, for: .normal)
+            }
+            if let handler = action.handler {
+                alertView.cancelAction = { [unowned self] in self.dismiss(animated: true, completion: handler) }
+            }
+        } else {
+            if let title = action.title {
+                alertView.defaultButton.setTitle(title, for: .normal)
+            }
+            if action.style == .destructive {
+                alertView.defaultButton.setTitleColor(UIColor.red, for: .normal)
+            }
+            if let handler = action.handler {
+                alertView.defaultAction = { [unowned self] in self.dismiss(animated: true, completion: handler) }
+            }
         }
-
-        if let handler = action.handler {
-            alertView.cancelAction = { [unowned self] in self.dismiss(animated: true, completion: handler) }
-        }
-        // TODO style使う
     }
 }

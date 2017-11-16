@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="cancelButton" destination="1EN-iK-k5C" id="SiI-u3-32C"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="rrl-89-1gj"/>
+                <outlet property="defaultButton" destination="B2e-mP-rsF" id="lj8-4H-gob"/>
                 <outlet property="message" destination="H8b-57-med" id="0AN-19-W9Y"/>
                 <outlet property="title" destination="kiY-Hq-9UE" id="Q1h-Xj-RJN"/>
             </connections>
@@ -44,6 +45,13 @@
                         <action selector="tapCancel:" destination="-1" eventType="touchUpInside" id="hNb-7l-eX8"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2e-mP-rsF">
+                    <rect key="frame" x="313" y="99" width="46" height="30"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="tapDefault:" destination="-1" eventType="touchUpInside" id="1z8-AJ-CnH"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="0.62771045290000005" blue="0.66117453349999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -54,7 +62,9 @@
                 <constraint firstItem="1EN-iK-k5C" firstAttribute="top" secondItem="H8b-57-med" secondAttribute="bottom" constant="16" id="fjj-f0-FeV"/>
                 <constraint firstItem="kiY-Hq-9UE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="gvS-Xn-opw"/>
                 <constraint firstItem="kiY-Hq-9UE" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="m3h-Mc-lgc"/>
+                <constraint firstItem="B2e-mP-rsF" firstAttribute="centerY" secondItem="1EN-iK-k5C" secondAttribute="centerY" id="qht-lT-dQE"/>
                 <constraint firstItem="1EN-iK-k5C" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="x3J-ZC-m17"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="B2e-mP-rsF" secondAttribute="trailing" constant="16" id="zkC-jR-Ejv"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
