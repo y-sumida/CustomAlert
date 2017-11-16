@@ -11,6 +11,9 @@ import UIKit
 class CustomAlert: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var message: UILabel!
+
+    var leftAction: (() -> Void) = {}
 
     override init(frame: CGRect){
         super.init(frame: frame)
@@ -20,6 +23,10 @@ class CustomAlert: UIView {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         loadNib()
+    }
+
+    @IBAction func tapLeftButton(_ sender: Any) {
+        self.leftAction()
     }
 
     func loadNib(){
