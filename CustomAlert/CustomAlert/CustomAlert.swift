@@ -13,7 +13,7 @@ class CustomAlert: UIView {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var message: UILabel!
 
-    var leftAction: (() -> Void) = {}
+    var cancelAction: (() -> Void) = {}
 
     override init(frame: CGRect){
         super.init(frame: frame)
@@ -25,8 +25,8 @@ class CustomAlert: UIView {
         loadNib()
     }
 
-    @IBAction func tapLeftButton(_ sender: Any) {
-        self.leftAction()
+    @IBAction func tapCancel(_ sender: Any) {
+        self.cancelAction()
     }
 
     func loadNib(){

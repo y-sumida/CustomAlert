@@ -42,7 +42,7 @@ class CustomAlertViewController: UIViewController {
     private func initAlertView() {
         alertView.title.text = alertTitle
         alertView.message.text = alertMessage
-        alertView.leftAction = { [unowned self] in self.dismiss(animated: true, completion: nil) }
+        alertView.cancelAction = { [unowned self] in self.dismiss(animated: true, completion: nil) }
         view.addSubview(alertView)
 
         alertView.translatesAutoresizingMaskIntoConstraints = false
