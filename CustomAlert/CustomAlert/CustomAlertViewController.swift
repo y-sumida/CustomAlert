@@ -19,12 +19,10 @@ class CustomAlertViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    init(title: String, message: String, action: (() -> Void)? = nil) {
+    init(title: String, message: String, preferredStyle: UIAlertControllerStyle) {
+        // TODO preferredStyle を使う
         alertTitle = title
         alertMessage = message
-        if let action = action {
-            alertHandler = action
-        }
         super.init(nibName: nil, bundle: nil)
         self.modalPresentationStyle = .overCurrentContext
         self.modalTransitionStyle = .crossDissolve
