@@ -45,10 +45,14 @@ class CustomAlert: UIView {
     }
 
     func addAction(_ action: CustomAlertAction) {
-        // とりあえずボタン2つまで
-        // TODO ボタンラベルのセット
-        guard actions.count < 2 else { return }
-        actions.append(action)
+        // キャンセルは1つのみ、全体で2つまで
+        if action.style == .cancel {
+            // キャンセルは必ず0番目 = 左に置く
+            actions = actions.filter { $0.style != .cancel }
+            actions.insert(action, at: 0)
+        } else if actions.count < 2 {
+            actions.append(action)
+        }
     }
 
     override func draw(_ rect: CGRect) {
