@@ -12,8 +12,6 @@ class CustomAlert: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var message: UILabel!
-    @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var defaultButton: UIButton!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var stackViewHeight: NSLayoutConstraint!
     private var actions:[CustomAlertAction] = []
@@ -26,16 +24,6 @@ class CustomAlert: UIView {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         loadNib()
-    }
-
-    @IBAction func tapDefault(_ sender: Any) {
-        guard actions.count == 2, let handler = actions[1].handler else { return }
-        handler()
-    }
-
-    @IBAction func tapCancel(_ sender: Any) {
-        guard !actions.isEmpty, let handler = actions[0].handler  else { return }
-        handler()
     }
 
     func loadNib(){
@@ -57,17 +45,19 @@ class CustomAlert: UIView {
 
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        switch actions.count {
-        case 0:
-            cancelButton.isHidden = true
-            defaultButton.isHidden = true
+        setupButtons()
+    }
+
+    private func setupButtons() {
+        if actions.isEmpty {
             stackView.isHidden = true
-            stackViewHeight.constant = 0.0
-        case 1:
-            defaultButton.isHidden = true
-        default:
-            cancelButton.isHidden = false
-            defaultButton.isHidden = false
+            stackViewHeight.constant = 0
+            return
+        }
+
+        actions.forEach { action in
+            let button = CustomAlertButton(alertAction: action)
+            stackView.addArrangedSubview(button)
         }
     }
 }

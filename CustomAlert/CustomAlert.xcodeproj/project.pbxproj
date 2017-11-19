@@ -15,6 +15,7 @@
 		A940902C1FAF4339009F792C /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A940902B1FAF4339009F792C /* CustomAlertViewController.swift */; };
 		A9A7B1DD1FAF53DD007D8726 /* CustomAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9A7B1DB1FAF53DD007D8726 /* CustomAlert.xib */; };
 		A9A7B1DE1FAF53DD007D8726 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A7B1DC1FAF53DD007D8726 /* CustomAlert.swift */; };
+		A9E1D27A1FC1C470006F6D7F /* CustomAlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E1D2791FC1C470006F6D7F /* CustomAlertButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A940902B1FAF4339009F792C /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		A9A7B1DB1FAF53DD007D8726 /* CustomAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomAlert.xib; sourceTree = "<group>"; };
 		A9A7B1DC1FAF53DD007D8726 /* CustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		A9E1D2791FC1C470006F6D7F /* CustomAlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				A94090221FAF4304009F792C /* LaunchScreen.storyboard */,
 				A940901D1FAF4304009F792C /* Main.storyboard */,
 				A940901B1FAF4304009F792C /* ViewController.swift */,
+				A9E1D2791FC1C470006F6D7F /* CustomAlertButton.swift */,
 			);
 			path = CustomAlert;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 				A940901A1FAF4304009F792C /* AppDelegate.swift in Sources */,
 				A9A7B1DE1FAF53DD007D8726 /* CustomAlert.swift in Sources */,
 				A940902C1FAF4339009F792C /* CustomAlertViewController.swift in Sources */,
+				A9E1D27A1FC1C470006F6D7F /* CustomAlertButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
