@@ -14,7 +14,6 @@
                 <outlet property="contentView" destination="iN0-l3-epB" id="rrl-89-1gj"/>
                 <outlet property="message" destination="H8b-57-med" id="0AN-19-W9Y"/>
                 <outlet property="stackView" destination="L9G-NI-8Ke" id="y6V-pi-YpJ"/>
-                <outlet property="stackViewHeight" destination="Lhq-Z6-ISC" id="5TC-3k-hbZ"/>
                 <outlet property="title" destination="kiY-Hq-9UE" id="Q1h-Xj-RJN"/>
             </connections>
         </placeholder>

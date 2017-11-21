@@ -13,7 +13,6 @@ class CustomAlert: UIView {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var message: UILabel!
     @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var stackViewHeight: NSLayoutConstraint!
     private var actions:[CustomAlertAction] = []
 
     override init(frame: CGRect){
@@ -50,8 +49,8 @@ class CustomAlert: UIView {
 
     private func setupButtons() {
         if actions.isEmpty {
-            stackView.isHidden = true
-            stackViewHeight.constant = 0
+            stackView.removeFromSuperview()
+            message.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16).isActive = true
             return
         }
 
