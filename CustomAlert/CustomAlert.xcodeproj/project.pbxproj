@@ -13,7 +13,6 @@
 		A94090211FAF4304009F792C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A94090201FAF4304009F792C /* Assets.xcassets */; };
 		A94090241FAF4304009F792C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A94090221FAF4304009F792C /* LaunchScreen.storyboard */; };
 		A940902C1FAF4339009F792C /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A940902B1FAF4339009F792C /* CustomAlertViewController.swift */; };
-		A9A7B1DD1FAF53DD007D8726 /* CustomAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9A7B1DB1FAF53DD007D8726 /* CustomAlert.xib */; };
 		A9A7B1DE1FAF53DD007D8726 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A7B1DC1FAF53DD007D8726 /* CustomAlert.swift */; };
 		A9E1D27A1FC1C470006F6D7F /* CustomAlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E1D2791FC1C470006F6D7F /* CustomAlertButton.swift */; };
 /* End PBXBuildFile section */
@@ -27,7 +26,6 @@
 		A94090231FAF4304009F792C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A94090251FAF4304009F792C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A940902B1FAF4339009F792C /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
-		A9A7B1DB1FAF53DD007D8726 /* CustomAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomAlert.xib; sourceTree = "<group>"; };
 		A9A7B1DC1FAF53DD007D8726 /* CustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		A9E1D2791FC1C470006F6D7F /* CustomAlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,7 +63,6 @@
 				A94090191FAF4304009F792C /* AppDelegate.swift */,
 				A94090201FAF4304009F792C /* Assets.xcassets */,
 				A9A7B1DC1FAF53DD007D8726 /* CustomAlert.swift */,
-				A9A7B1DB1FAF53DD007D8726 /* CustomAlert.xib */,
 				A940902B1FAF4339009F792C /* CustomAlertViewController.swift */,
 				A94090251FAF4304009F792C /* Info.plist */,
 				A94090221FAF4304009F792C /* LaunchScreen.storyboard */,
@@ -137,7 +134,6 @@
 			files = (
 				A94090241FAF4304009F792C /* LaunchScreen.storyboard in Resources */,
 				A94090211FAF4304009F792C /* Assets.xcassets in Resources */,
-				A9A7B1DD1FAF53DD007D8726 /* CustomAlert.xib in Resources */,
 				A940901F1FAF4304009F792C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
