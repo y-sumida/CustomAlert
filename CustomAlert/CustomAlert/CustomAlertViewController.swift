@@ -16,10 +16,6 @@ struct CustomAlertAction {
 
 class CustomAlertViewController: UIViewController {
     private let screenSize: CGRect = UIScreen.main.bounds
-
-    private let alertTitle: String?
-    private let alertMessage: String?
-
     private let alertView: CustomAlert = CustomAlert()
 
     required init?(coder aDecoder: NSCoder) {
@@ -27,10 +23,9 @@ class CustomAlertViewController: UIViewController {
     }
 
     init(title: String?, message: String?, preferredStyle: UIAlertControllerStyle) {
-        // TODO preferredStyle を使う
-        alertTitle = title
-        alertMessage = message
         super.init(nibName: nil, bundle: nil)
+        alertView.title = title
+        alertView.message = message
         self.modalPresentationStyle = .overCurrentContext
         self.modalTransitionStyle = .crossDissolve
 
@@ -46,8 +41,6 @@ class CustomAlertViewController: UIViewController {
     }
 
     private func initAlertView() {
-        alertView.title.text = alertTitle
-        alertView.message.text = alertMessage
         view.addSubview(alertView)
 
         alertView.translatesAutoresizingMaskIntoConstraints = false
