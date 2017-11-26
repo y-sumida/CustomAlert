@@ -24,8 +24,10 @@ class ViewController: UIViewController {
         let vc = CustomAlertViewController(title: "タイトルタイトル", message: "メッセージメッセージメッセージ", preferredStyle: .alert)
         let defaultAction = CustomAlertAction(title: "OK", style: .default, handler: { () -> Void in print("ok action")})
         let cancelAction = CustomAlertAction(title: "閉じる", style: .cancel, handler: { () -> Void in print("cancel action")})
+        let destructiveAction = CustomAlertAction(title: "3", style: .destructive, handler: { () -> Void in print("destructive action")})
         vc.addAction(defaultAction)
         vc.addAction(cancelAction)
+        vc.addAction(destructiveAction)
         self.present(vc, animated: true, completion: nil)
     }
     

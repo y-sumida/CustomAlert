@@ -74,12 +74,12 @@ class CustomAlert: UIView {
     }
 
     func addAction(_ action: CustomAlertAction) {
-        // キャンセルは1つのみ、全体で2つまで
+        // キャンセルは1つのみ
         if action.style == .cancel {
             // キャンセルは必ず0番目 = 左に置く
             actions = actions.filter { $0.style != .cancel }
             actions.insert(action, at: 0)
-        } else if actions.count < 2 {
+        } else {
             actions.append(action)
         }
     }
@@ -94,6 +94,11 @@ class CustomAlert: UIView {
             stackView.removeFromSuperview()
             alertMessage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16).isActive = true
             return
+        }
+
+        if actions.count > 2 {
+            stackView.axis = .vertical
+            stackView.spacing = 0.5
         }
 
         actions.forEach { action in
