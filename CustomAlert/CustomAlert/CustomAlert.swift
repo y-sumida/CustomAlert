@@ -99,6 +99,11 @@ class CustomAlert: UIView {
         if actions.count > 2 {
             stackView.axis = .vertical
             stackView.spacing = 0.5
+            // 縦に並ぶときは一番下がキャンセル
+            if let cancel = actions.filter({ $0.style == .cancel }).first {
+                actions = actions.dropFirst().map { $0 }
+                actions.append(cancel)
+            }
         }
 
         actions.forEach { action in
