@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol AlertViewProtocol {
+    associatedtype T: AlertButtonProtocol = CustomAlertButton
+    func button(action: CustomAlertAction) -> T
+}
+
 class CustomAlert: UIView {
     private let alertTitle = UILabel()
     private let alertMessage = UILabel()
@@ -107,8 +112,15 @@ class CustomAlert: UIView {
         }
 
         actions.forEach { action in
-            let button = CustomAlertButton(alertAction: action)
+            let button = self.button(action: action)
             stackView.addArrangedSubview(button)
         }
+    }
+}
+
+extension CustomAlert: AlertViewProtocol {
+    typealias T = CustomAlertButton
+    func button(action: CustomAlertAction) -> T {
+       return CustomAlertButton(alertAction: action)
     }
 }
