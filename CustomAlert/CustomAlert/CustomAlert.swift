@@ -17,30 +17,13 @@ class CustomAlert: UIView {
     private let alertTitle = UILabel()
     private let alertMessage = UILabel()
     private let stackView = UIStackView()
-    private var actions:[CustomAlertAction] = []
-
-    var title: String? = nil {
-        didSet {
-            if let text = title {
-                alertTitle.text = text
-            }
-        }
-    }
-    var message: String? = nil {
-        didSet {
-            if let text = message {
-                alertMessage.text = text
-            }
-        }
-    }
 
     required init(title: String?, message: String?, actions: [CustomAlertAction]) {
         super.init(frame: CGRect.zero)
-        self.title = title
-        self.message = message
-        self.actions = actions
+        alertTitle.text = title
+        alertMessage.text = message
         commonInit()
-        setupButtons()
+        setupButtons(actions: actions)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -82,24 +65,25 @@ class CustomAlert: UIView {
         stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16).isActive = true
     }
 
-    private func setupButtons() {
+    private func setupButtons(actions: [CustomAlertAction]) {
         if actions.isEmpty {
             stackView.removeFromSuperview()
             alertMessage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16).isActive = true
             return
         }
+        var copyActions = actions
 
-        if actions.count > 2 {
+        if copyActions.count > 2 {
             stackView.axis = .vertical
             stackView.spacing = 0.5
             // 縦に並ぶときは一番下がキャンセル
-            if let cancel = actions.filter({ $0.style == .cancel }).first {
-                actions = actions.dropFirst().map { $0 }
-                actions.append(cancel)
+            if let cancel = copyActions.filter({ $0.style == .cancel }).first {
+                copyActions = actions.dropFirst().map { $0 }
+                copyActions.append(cancel)
             }
         }
 
-        actions.forEach { action in
+        copyActions.forEach { action in
             let button = self.button(action: action)
             stackView.addArrangedSubview(button)
         }
