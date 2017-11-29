@@ -15,7 +15,7 @@ protocol AlertViewProtocol {
     associatedtype T: AlertButtonProtocol = CustomAlertButton
     init(frame: CGRect)
     init(title: String?, message: String?, actions: [CustomAlertAction])
-    func setupViews()
+    func setupViews(actions: [CustomAlertAction])
     func setupButtons(actions: [CustomAlertAction]) -> [T]
 }
 
@@ -23,23 +23,17 @@ extension AlertViewProtocol where Self: UIView {
     init(title: String?, message: String?, actions: [CustomAlertAction]) {
         self.init(frame: CGRect.zero)
 
-        setupViews()
+        setupViews(actions: actions)
         alertTitle.text = title
         alertMessage.text = message
 
         let buttons = setupButtons(actions: actions)
-        if buttons.isEmpty {
-            stackView.removeFromSuperview()
-            alertMessage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16).isActive = true
-            return
-        } else {
-            buttons.forEach { button in
-                stackView.addArrangedSubview(button as! UIView)
-            }
+        buttons.forEach { button in
+            stackView.addArrangedSubview(button as! UIView)
         }
     }
 
-    func setupViews() {
+    func setupViews(actions: [CustomAlertAction]) {
         backgroundColor = UIColor.white
         
         alertTitle.translatesAutoresizingMaskIntoConstraints = false
@@ -60,23 +54,32 @@ extension AlertViewProtocol where Self: UIView {
         alertMessage.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 24).isActive = true
         alertMessage.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -24).isActive = true
         
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
-        stackView.alignment = .fill
-        stackView.distribution = .fillEqually
-        stackView.spacing = 16
-        self.addSubview(stackView)
-        stackView.topAnchor.constraint(equalTo: alertMessage.bottomAnchor, constant: 32).isActive = true
-        stackView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16).isActive = true
-        stackView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16).isActive = true
+        if actions.count == 0 {
+            stackView.removeFromSuperview()
+            alertMessage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16).isActive = true
+            return
+        } else {
+            stackView.translatesAutoresizingMaskIntoConstraints = false
+            stackView.axis = .horizontal
+            stackView.alignment = .fill
+            stackView.distribution = .fillEqually
+            stackView.spacing = 16
+            self.addSubview(stackView)
+            stackView.topAnchor.constraint(equalTo: alertMessage.bottomAnchor, constant: 32).isActive = true
+            stackView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16).isActive = true
+            stackView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16).isActive = true
+            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16).isActive = true
+        }
+
+        if actions.count > 2 {
+            stackView.axis = .vertical
+            stackView.spacing = 0.5
+        }
     }
 
     func setupButtons(actions: [CustomAlertAction]) -> [T] {
         var copyActions = actions
         if copyActions.count > 2 {
-            stackView.axis = .vertical
-            stackView.spacing = 0.5
             // 縦に並ぶときは一番下がキャンセル
             if let cancel = copyActions.filter({ $0.style == .cancel }).first {
                 copyActions = actions.dropFirst().map { $0 }
