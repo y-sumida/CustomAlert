@@ -34,9 +34,13 @@ class CustomAlert: UIView {
         }
     }
 
-    override init(frame: CGRect){
-        super.init(frame: frame)
+    required init(title: String?, message: String?, actions: [CustomAlertAction]) {
+        super.init(frame: CGRect.zero)
+        self.title = title
+        self.message = message
+        self.actions = actions
         commonInit()
+        setupButtons()
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -76,22 +80,6 @@ class CustomAlert: UIView {
         stackView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16).isActive = true
         stackView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16).isActive = true
         stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16).isActive = true
-    }
-
-    func addAction(_ action: CustomAlertAction) {
-        // キャンセルは1つのみ
-        if action.style == .cancel {
-            // キャンセルは必ず0番目 = 左に置く
-            actions = actions.filter { $0.style != .cancel }
-            actions.insert(action, at: 0)
-        } else {
-            actions.append(action)
-        }
-    }
-
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        setupButtons()
     }
 
     private func setupButtons() {
