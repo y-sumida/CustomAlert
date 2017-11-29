@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol AlertButtonProtocol {
+protocol AlertButtonProtocol: class {
     init(alertAction: CustomAlertAction)
 }
 

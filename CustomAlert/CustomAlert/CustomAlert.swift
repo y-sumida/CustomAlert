@@ -16,7 +16,7 @@ protocol AlertViewProtocol {
     init(frame: CGRect)
     init(title: String?, message: String?, actions: [CustomAlertAction])
     func setupViews()
-    func button(action: CustomAlertAction) -> T
+    func setupButtons(actions: [CustomAlertAction]) -> [T]
 }
 
 extension AlertViewProtocol where Self: UIView {
@@ -27,26 +27,15 @@ extension AlertViewProtocol where Self: UIView {
         alertTitle.text = title
         alertMessage.text = message
 
-        if actions.isEmpty {
+        let buttons = setupButtons(actions: actions)
+        if buttons.isEmpty {
             stackView.removeFromSuperview()
             alertMessage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16).isActive = true
             return
-        }
-        var copyActions = actions
-        
-        if copyActions.count > 2 {
-            stackView.axis = .vertical
-            stackView.spacing = 0.5
-            // 縦に並ぶときは一番下がキャンセル
-            if let cancel = copyActions.filter({ $0.style == .cancel }).first {
-                copyActions = actions.dropFirst().map { $0 }
-                copyActions.append(cancel)
+        } else {
+            buttons.forEach { button in
+                stackView.addArrangedSubview(button as! UIView)
             }
-        }
-        
-        copyActions.forEach { action in
-            let button = self.button(action: action)
-            stackView.addArrangedSubview(button as! UIView)
         }
     }
 
@@ -82,6 +71,26 @@ extension AlertViewProtocol where Self: UIView {
         stackView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16).isActive = true
         stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16).isActive = true
     }
+
+    func setupButtons(actions: [CustomAlertAction]) -> [T] {
+        var copyActions = actions
+        if copyActions.count > 2 {
+            stackView.axis = .vertical
+            stackView.spacing = 0.5
+            // 縦に並ぶときは一番下がキャンセル
+            if let cancel = copyActions.filter({ $0.style == .cancel }).first {
+                copyActions = actions.dropFirst().map { $0 }
+                copyActions.append(cancel)
+            }
+        }
+
+        var buttons: [T] = []
+        copyActions.forEach { action in
+            let button: Self.T = Self.T.init(alertAction: action)
+            buttons.append(button)
+        }
+        return buttons
+    }
 }
 
 class CustomAlert: UIView {
@@ -100,7 +109,4 @@ class CustomAlert: UIView {
 
 extension CustomAlert: AlertViewProtocol {
     typealias T = CustomAlertButton
-    func button(action: CustomAlertAction) -> T {
-       return CustomAlertButton(alertAction: action)
-    }
 }
