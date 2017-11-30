@@ -11,7 +11,7 @@ protocol AlertViewProtocol {
     var alertTitle: UILabel { get }
     var alertMessage: UILabel { get }
     var stackView: UIStackView { get }
-    associatedtype T: AlertButtonProtocol = CustomAlertButton
+    associatedtype T: AlertButtonProtocol
     init(frame: CGRect)
     init(title: String?, message: String?, actions: [CustomAlertAction])
     func setupViews(actions: [CustomAlertAction])
