@@ -42,7 +42,7 @@ class CustomAlertViewController: UIViewController {
     }
 
     private func initAlertView() {
-        let alertView = CustomAlert(title: alertTitle, message: alertMessage, actions: actions)
+        let alertView = CustomAlertView(title: alertTitle, message: alertMessage, actions: actions)
         view.addSubview(alertView)
 
         alertView.translatesAutoresizingMaskIntoConstraints = false

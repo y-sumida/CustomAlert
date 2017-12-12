@@ -14,7 +14,7 @@
 		A94090241FAF4304009F792C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A94090221FAF4304009F792C /* LaunchScreen.storyboard */; };
 		A940902C1FAF4339009F792C /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A940902B1FAF4339009F792C /* CustomAlertViewController.swift */; };
 		A99151D81FD03EC800D4059D /* CustomAlertViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99151D71FD03EC800D4059D /* CustomAlertViewProtocol.swift */; };
-		A9A7B1DE1FAF53DD007D8726 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A7B1DC1FAF53DD007D8726 /* CustomAlert.swift */; };
+		A9A7B1DE1FAF53DD007D8726 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A7B1DC1FAF53DD007D8726 /* CustomAlertView.swift */; };
 		A9E1D27A1FC1C470006F6D7F /* CustomAlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E1D2791FC1C470006F6D7F /* CustomAlertButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +28,7 @@
 		A94090251FAF4304009F792C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A940902B1FAF4339009F792C /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		A99151D71FD03EC800D4059D /* CustomAlertViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewProtocol.swift; sourceTree = "<group>"; };
-		A9A7B1DC1FAF53DD007D8726 /* CustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		A9A7B1DC1FAF53DD007D8726 /* CustomAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		A9E1D2791FC1C470006F6D7F /* CustomAlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,7 +64,7 @@
 			children = (
 				A94090191FAF4304009F792C /* AppDelegate.swift */,
 				A94090201FAF4304009F792C /* Assets.xcassets */,
-				A9A7B1DC1FAF53DD007D8726 /* CustomAlert.swift */,
+				A9A7B1DC1FAF53DD007D8726 /* CustomAlertView.swift */,
 				A940902B1FAF4339009F792C /* CustomAlertViewController.swift */,
 				A94090251FAF4304009F792C /* Info.plist */,
 				A94090221FAF4304009F792C /* LaunchScreen.storyboard */,
@@ -151,7 +151,7 @@
 				A99151D81FD03EC800D4059D /* CustomAlertViewProtocol.swift in Sources */,
 				A940901C1FAF4304009F792C /* ViewController.swift in Sources */,
 				A940901A1FAF4304009F792C /* AppDelegate.swift in Sources */,
-				A9A7B1DE1FAF53DD007D8726 /* CustomAlert.swift in Sources */,
+				A9A7B1DE1FAF53DD007D8726 /* CustomAlertView.swift in Sources */,
 				A940902C1FAF4339009F792C /* CustomAlertViewController.swift in Sources */,
 				A9E1D27A1FC1C470006F6D7F /* CustomAlertButton.swift in Sources */,
 			);

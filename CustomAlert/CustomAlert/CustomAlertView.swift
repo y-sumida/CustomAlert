@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomAlert: UIView {
+class CustomAlertView: UIView {
     let alertTitle = UILabel()
     let alertMessage = UILabel()
     let stackView = UIStackView()
@@ -22,6 +22,6 @@ class CustomAlert: UIView {
     }
 }
 
-extension CustomAlert: AlertViewProtocol {
+extension CustomAlertView: AlertViewProtocol {
     typealias T = CustomAlertButton
 }
